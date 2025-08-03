@@ -1,11 +1,43 @@
+# Node dependencies and build output
+node_modules/
+public/
+dist/
+.cache/
+.quartz-cache/
+prof/
+
+# OS junk
 .DS_Store
-.gitignore
-node_modules
-public
-prof
+Thumbs.db
+
+# Logs and debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript build info
 tsconfig.tsbuildinfo
-.obsidian
-.quartz-cache
+
+# Obsidian-specific
+.obsidian/
 private/
+
+# Editor and IDE settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+
+# Cloud/Remote/Online IDE
 .replit
 replit.nix
+
+# Environment and credentials
+.env
+.env.*
+
+# Miscellaneous
+*.local
+.gitignore
