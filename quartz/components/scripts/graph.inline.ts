@@ -81,8 +81,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     repelForce,
     centerForce,
     linkDistance,
-    fontSize,
-    opacityScale,
+    fontSize: _fontSize,
+    opacityScale: _opacityScale,
     removeTags,
     showTags,
     focusOnHover,
@@ -262,7 +262,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         alpha = l.active ? 1 : 0.2
       }
 
-      l.color = "#000000"
+      l.color = l.active ? computedStyleMap["--gray"] : computedStyleMap["--lightgray"]
       tweenGroup.add(new Tweened<LinkRenderData>(l).to({ alpha }, 200))
     }
 
@@ -382,7 +382,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       anchor: { x: 0.5, y: 1.2 },
       style: {
         fontSize: 8,
-        fill: "#000000",
+        fill: computedStyleMap["--dark"],
         fontFamily: computedStyleMap["--bodyFont"],
       },
       resolution: window.devicePixelRatio * 4,
@@ -510,11 +510,15 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           stage.position.set(transform.x, transform.y)
 
           // Keep labels always visible at all zoom levels
+          // Scale font size inversely to zoom to maintain consistent visual size
+          const inverseFontScale = 1 / transform.k
           const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label)
 
           for (const label of labelsContainer.children) {
             if (!activeNodes.includes(label)) {
               label.alpha = 1  // Always visible
+              // Scale font size inversely to zoom level
+              label.style.fontSize = 8 * inverseFontScale
             }
           }
         }),
