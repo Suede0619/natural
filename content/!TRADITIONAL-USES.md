@@ -14,4 +14,4 @@
 
 ---
 
-**Navigation**: [[INDEX.md]] | [[_PLANT-FAMILIES]] | [[_PREPARATION-METHODS]]
+**Navigation**: [[!INDEX]] | [[!PLANT-FAMILIES]] | [[!PREPARATION-METHODS]]

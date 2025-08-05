@@ -5,9 +5,9 @@
 ## Quick Navigation
 
 ### Visual Knowledge Graphs
-- **[[_PLANT-FAMILIES|🌿 Plant Families Graph]]** - Interactive botanical family relationships
-- **[[_TRADITIONAL-USES|💊 Traditional Uses Graph]]** - Therapeutic application networks  
-- **[[_PREPARATION-METHODS|🧪 Preparation Methods Graph]]** - Extraction and preparation techniques
+- **[[!PLANT-FAMILIES|🌿 Plant Families]]** - Interactive botanical family relationships
+- **[[!TRADITIONAL-USES|💊 Traditional Uses]]** - Therapeutic application networks  
+- **[[!PREPARATION-METHODS|🧪 Preparation Methods]]** - Extraction and preparation techniques
 
 ### By Plant Family
 - **[Asteraceae (Sunflower Family)](#asteraceae)** - Echinacea, Calendula, Dandelion, Yarrow, Milk Thistle
