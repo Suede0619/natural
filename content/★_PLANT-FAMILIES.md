@@ -14,4 +14,4 @@
 
 ---
 
-**Navigation**: [[!INDEX]] | [[★ TRADITIONAL-USES]] | [[★ PREPARATION-METHODS]]
+**Navigation**: [[!INDEX]] | [[★_TRADITIONAL-USES]] | [[★_PREPARATION-METHODS]]
