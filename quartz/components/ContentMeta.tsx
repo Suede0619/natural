@@ -24,32 +24,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
   const options: ContentMetaOptions = { ...defaultOptions, ...opts }
 
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
-    const text = fileData.text
-
-    if (text) {
-      const segments: (string | JSX.Element)[] = []
-
-      if (fileData.dates) {
-        segments.push(<Date date={getDate(cfg, fileData)!} locale={cfg.locale} />)
-      }
-
-      // Display reading time if enabled
-      if (options.showReadingTime) {
-        const { minutes, words: _words } = readingTime(text)
-        const displayedTime = i18n(cfg.locale).components.contentMeta.readingTime({
-          minutes: Math.ceil(minutes),
-        })
-        segments.push(<span>{displayedTime}</span>)
-      }
-
-      return (
-        <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
-          {segments}
-        </p>
-      )
-    } else {
-      return null
-    }
+    // Return null to hide all metadata (date and reading time)
+    return null
   }
 
   ContentMetadata.css = style

@@ -81,8 +81,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     repelForce,
     centerForce,
     linkDistance,
-    fontSize,
-    opacityScale,
+    fontSize: _fontSize,
+    opacityScale: _opacityScale,
     removeTags,
     showTags,
     focusOnHover,
@@ -378,10 +378,10 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       interactive: false,
       eventMode: "none",
       text: n.text,
-      alpha: 0,
+      alpha: 1,
       anchor: { x: 0.5, y: 1.2 },
       style: {
-        fontSize: fontSize * 15,
+        fontSize: 8,
         fill: computedStyleMap["--dark"],
         fontFamily: computedStyleMap["--bodyFont"],
       },
@@ -509,14 +509,16 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           stage.scale.set(transform.k, transform.k)
           stage.position.set(transform.x, transform.y)
 
-          // zoom adjusts opacity of labels too
-          const scale = transform.k * opacityScale
-          let scaleOpacity = Math.max((scale - 1) / 3.75, 0)
+          // Keep labels always visible at all zoom levels
+          // Scale font size inversely to zoom to maintain consistent visual size
+          const inverseFontScale = 1 / transform.k
           const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label)
 
           for (const label of labelsContainer.children) {
             if (!activeNodes.includes(label)) {
-              label.alpha = scaleOpacity
+              label.alpha = 1  // Always visible
+              // Scale font size inversely to zoom level
+              label.style.fontSize = 8 * inverseFontScale
             }
           }
         }),
@@ -541,7 +543,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       l.gfx.moveTo(linkData.source.x! + width / 2, linkData.source.y! + height / 2)
       l.gfx
         .lineTo(linkData.target.x! + width / 2, linkData.target.y! + height / 2)
-        .stroke({ alpha: l.alpha, width: 1, color: l.color })
+        .stroke({ alpha: l.alpha, width: 0.25, color: l.color })
     }
 
     tweens.forEach((t) => t.update(time))

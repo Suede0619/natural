@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx quartz build:*)",
+      "WebFetch(domain:quartz.jzhao.xyz)",
+      "WebFetch(domain:github.com)",
+      "Bash(bash -c \"source ~/.nvm/nvm.sh && nvm use 22.13.1 && npx quartz build --serve\")",
+      "Bash(system_profiler:*)",
+      "Bash(lsof:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(chmod:*)",
+      "Bash(./start-server.sh:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(pkill:*)"
+    ],
+    "deny": []
+  }
+}
