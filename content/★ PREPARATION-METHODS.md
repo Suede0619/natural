@@ -142,4 +142,4 @@ Plants that work well with multiple preparation methods:
 
 ---
 
-**Navigation**: [[!INDEX]] | [[!PLANT-FAMILIES]] | [[!TRADITIONAL-USES]]
+**Navigation**: [[!INDEX]] | [[★ PLANT-FAMILIES]] | [[★ TRADITIONAL-USES]]
